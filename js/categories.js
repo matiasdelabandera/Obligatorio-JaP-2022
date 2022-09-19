@@ -6,10 +6,27 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+function nombreUsuarioF () {
+    if (nombreUsuario = null) {
+        nombreUsuario === "Usuario"
+    }else {
+        nombreUsuario = localStorage.getItem('nombre-Usuario')
+    }
+    return nombreUsuario
+}
+
+nombreUsuarioF();
+
+let htmlContentToAppend = "";
+htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
+
+document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
+
 function catID(id){
     localStorage.setItem("catID", id);
     window.location = "products.html"
 }
+
 
 function sortCategories(criteria, array){
     let result = [];

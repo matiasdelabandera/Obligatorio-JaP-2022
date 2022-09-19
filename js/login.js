@@ -11,7 +11,7 @@ function login(){
     let email = document.getElementById('inputEmail').value;
     let password = document.getElementById('inputPassword').value;
     if(email != "" && password != "") {
-        window.location.href="index.html";
+        window.location.href="home.html";
     } else {
         alert ("campos vacios")
     }
