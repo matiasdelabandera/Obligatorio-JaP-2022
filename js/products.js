@@ -29,22 +29,25 @@ document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
 
 function sortProducts(criteria, array){
     let result = [];
+    if(array.hasOwnProperty("products")){
+        array = array.products
+    }
+    
     if (criteria === ORDER_ASC_BY_NAME)
     {
-        console.log(array)
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             if ( a.name < b.name ){ return -1; }
             if ( a.name > b.name ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_DESC_BY_NAME){
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             if ( a.name > b.name ){ return -1; }
             if ( a.name < b.name ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_PROD_COST){
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             let aCost = parseInt(a.product.cost);
             let bCost = parseInt(b.product.cost);
 
@@ -53,19 +56,19 @@ function sortProducts(criteria, array){
             return 0;
         });
     }else if (criteria === ORDER_ASC_BY_PRICE){
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             if ( a.cost < b.cost ) { return -1; }
             if ( a.cost > b.cost ) { return 1; }
             return 0;
         });
     }else if (criteria === ORDER_DESC_BY_PRICE){
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             if ( a.cost > b.cost ){ return -1; }
             if ( a.cost < b.cost ){ return 1;}
             return 0;
         });
     }else if (criteria === ORDER_DESC_RELEVANCE){
-        result = array.products.sort(function(a, b) {
+        result = array.sort(function(a, b) {
             if ( a.soldCount > b.soldCount ){ return -1; }
             if ( a.soldCount < b.soldCount ){ return 1; }
             return 0
