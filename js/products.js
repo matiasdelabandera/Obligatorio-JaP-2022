@@ -9,23 +9,6 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCost = undefined;
 var maxCost = undefined;
-//import imgUsuario from "../img/Usuario.png"
-
-function nombreUsuarioF () {
-    if (nombreUsuario = null) {
-        nombreUsuario === "Usuario"
-    }else {
-        nombreUsuario = localStorage.getItem('nombre-Usuario')
-    }
-    return nombreUsuario
-}
-
-nombreUsuarioF();
-
-let htmlContentToAppend = "";
-htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
-
-document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
 
 function sortProducts(criteria, array){
     let result = [];
@@ -67,16 +50,16 @@ function sortProducts(criteria, array){
             if ( a.cost < b.cost ){ return 1;}
             return 0;
         });
-    }else if (criteria === ORDER_DESC_RELEVANCE){
+    }else if (criteria === ORDER_DESC_RELEVANCE){   
         result = array.sort(function(a, b) {
             if ( a.soldCount > b.soldCount ){ return -1; }
             if ( a.soldCount < b.soldCount ){ return 1; }
             return 0
         })
     };
+    return result;}
 
-    return result;
-}
+   
 
 function showProductsList(){
 
@@ -88,8 +71,8 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
+            <a href="product-info.html" class="list-group-item list-group-item-action" id="prodId"  >
+                <div class="row" onclick = "setProdId(${product.id})">
                     <div class="col-3">
                         <img src="` + product.image + `" alt="` + product.description + `" class="img-thumbnail">
                     </div>
@@ -130,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
+            //clearSetProdId();
         }
     });
 
@@ -152,6 +136,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("sortByCount").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_RELEVANCE)
     });
+
+    /*document.getElementById("prodId").addEventListener("click",function(){
+        setProdId(product.id)
+    });*/
+
 
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
@@ -187,3 +176,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+function setProdId(id){
+    localStorage.setItem("prod-id", id)
+}
+
+function clearSetProdId(){
+    localStorage.clear();
+}
+//document.addEventListener("DOMContentLoaded", function(a)){}
