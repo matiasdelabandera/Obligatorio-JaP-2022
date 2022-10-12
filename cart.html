@@ -13,7 +13,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container" id="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,15 +34,72 @@
           </li>
           <li class="nav-item">
           </li>
+          <div class="btn-group">
+            <a href="my-profile.html"><button type="button class" class="btn btn-secondary" id="nombreUsuario"></button></a>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h2>Artículos a comprar</h2>
+      <table class="table">
+        <caption>Carrito de compras</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="cart">
+        </tbody>
+      </table>
+      <hr>
+      <h3>Tipo de envio</h3>
+      <form action="">
+        <input type="radio" id="Premium" value="2 a 5 dias (15%)">
+        <label for="">Premium 2 a 5 dias (15%)</label><br>
+        <input type="radio" id="Express" value="5 a 8 dias (7%)">
+        <label for="">Express 5 a 8 dias (7%)</label><br>
+        <input type="radio" id="Standard" value="12 a 15 dias (5%)">
+        <label for="">Standard 12 a 15 dias (5%)</label><br><br>
+        <h3>Dirección de envío</h3>
+        
+        <div class="row">
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" placeholder="Dirección">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" placeholder="Número">
+          </div>
+        </div> <br>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="Esquina">
+        </div>
+      </form>
+      <hr>
+      
+        
+        
+          
+        
+
+      </form>
+      
     </div>
   </main>
   <footer class="text-muted">
@@ -67,5 +124,4 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>
-
 </html>

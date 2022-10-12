@@ -3,8 +3,8 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("singInButton").addEventListener("click", login)
-
     document.getElementById("singInButton").addEventListener("click", nombreUsuario)
+
 });
 
 function login(){
@@ -21,3 +21,8 @@ function login(){
 function nombreUsuario(){
     localStorage.setItem('nombre-Usuario',document.getElementById('inputEmail').value)
 };
+
+function resetNombreUsuario(){
+    localStorage.setItem('nombre-Usuario', '');
+}
+resetNombreUsuario();

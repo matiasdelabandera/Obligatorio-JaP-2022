@@ -36,8 +36,17 @@
           <li class="nav-item">
           </li>
           <li>
-            <div class="usuario">
-              <a class="py-2 d-none d-md-inline-block img" href="" id="nombreUsuario"> <!--<img src="" alt=" " class="img-usuario">--></a> 
+            <div class="btn-group">
+              <a href="my-profile.html"><button type="button class" class="btn btn-secondary" id="nombreUsuario"></button></a>
+              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -64,28 +73,39 @@
             <span class="sr-only">Next</span>
           </a> -->
         </div>
+        <br><hr>
+    <br><br><br>
+    </div>
+    
+
+
+     <!-- productos relacionados -->
+     <div class="row justify-content-center" id="prod-relacionados">
+      <h2 class="text-center">Productos relacionados</h2>
     </div>
 
-    <!-- Comentarios -->
+    <!-- Comentarios nuevos -->
     <div class="container" id="comentarios">
       <div class="row justify-content-center">
         <div class="col-6"><br>
           <form action="">
             <textarea name="" id="nuevoComentario" rows="3" cols="7" type="text" placeholder="Comentario" class="form-control"></textarea>
-            <select class="form-select" aria-label="Default select example" id="Estrellas" required>
-              <option selected>Estrellas</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
-              <option value="4">⭐⭐⭐⭐</option>
-              <option value="5">⭐⭐⭐⭐⭐</option>
-            </select>
-            <div class="row">
-              <div class="col"><button type="button" id="enviar" class="btn btn-lg btn-primary btn-block">Comentar</button>
+              <div class="col-4">
+                <select class="form-select" aria-label="Default select example" id="Estrellas" required>
+                  <option value="5">⭐⭐⭐⭐⭐</option>
+                  <option value="4">⭐⭐⭐⭐</option>
+                  <option value="3">⭐⭐⭐</option>
+                  <option value="2">⭐⭐</option>
+                  <option value="1">⭐</option>
+                </select>
+          </div>
+            <div class="row justify-content-end">
+              <div class="col">
+                <button type="button" id="enviar" onclick="comentarioNuevo()" class="btn btn-lg btn-primary btn-block">Comentar</button>
+                <br><br>
               </div>
             </div>
           </div>
-        
       </div>
       <br>
     </div>    
@@ -114,3 +134,8 @@
 </body>
 
 </html>
+
+
+
+
+<!--<img src="" alt=" " class="img-usuario">-->
