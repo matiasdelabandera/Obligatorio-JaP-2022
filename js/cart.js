@@ -4,6 +4,7 @@ var costoEnvio = "";
 var Total = "";
 let validacionForm = document.getElementById("formularioCarro")
 
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(JSON).then(function(JSON){
         if(JSON.status === "ok"){
@@ -36,6 +37,7 @@ function calcularCosto(precioProducto){
 
 function showCart(array){
     let info = array.data.articles
+    localStorage.setItem('precioProd', info[0].unitCost)
     let carritoHTML ="";
     let costo = parseInt (info[0].unitCost)
     let unidades = parseInt (info[0].count)
@@ -79,17 +81,17 @@ function showCost(array){
 function dinamicCost(){
     costoEnvio = "";
     Total = "";
-    let precio =  parseInt(document.getElementById("SubtotalC").value)
+    let precio = parseInt(localStorage.getItem('precioProd'))
     let moneda = "USD"
-    calcularCosto(precio)
+    let total = precio + calcularCosto(precio) 
     costoEnvio += `
        ${moneda}${calcularCosto(precio)}
         `
-    document.getElementById("CostoEnvioF").innerHTML += costoEnvio;
+    document.getElementById("CostoEnvioF").innerHTML = costoEnvio;
     Total +=`
-        ${moneda}${Total}
+        ${moneda}${total}
         `
-    document.getElementById("TotalHtml").innerHTML += Total;
+    document.getElementById("TotalHtml").innerHTML = Total;
 }
 
 function dinamicSubTotal(item){
