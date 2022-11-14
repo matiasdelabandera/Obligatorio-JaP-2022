@@ -69,38 +69,101 @@
         </tbody>
       </table>
       <hr>
+      <!-- Forma de envio -->
       <h3>Tipo de envio</h3>
-      <form action="">
-        <input type="radio" id="Premium" value="2 a 5 dias (15%)">
-        <label for="">Premium 2 a 5 dias (15%)</label><br>
-        <input type="radio" id="Express" value="5 a 8 dias (7%)">
-        <label for="">Express 5 a 8 dias (7%)</label><br>
-        <input type="radio" id="Standard" value="12 a 15 dias (5%)">
-        <label for="">Standard 12 a 15 dias (5%)</label><br><br>
+      <form action="" method="get" class="needs-validation" novalidate id="formularioCarro">
+        <div id="formEnvio" onchange="dinamicCost()">
+          <input type="radio" id="premium" name="Envio" value="Premium" checked>
+          <label for="premium 2 a 5 dias (15%)">Premium 2 a 5 dias (15%)</label><br>
+          <input type="radio" id="express" name="Envio" value="Express">
+          <label for="express 5 a 8 dias (7%)">Express 5 a 8 dias (7%)</label><br>
+          <input type="radio" id="standard" name="Envio" value="Standard">
+          <label for="standard 12 a 15 dias (5%)">Standard 12 a 15 dias (5%)</label>
+        </div>
+        <br><br>
+
+
         <h3>Dirección de envío</h3>
         
         <div class="row">
           <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Dirección">
+            <input type="text" class="form-control" placeholder="Dirección" id="direccion" required>
+            <div class="invalid-feedback">
+              Debe ingresar una direccion
+            </div>
           </div>
           <div class="form-group col-md-2">
-            <input type="text" class="form-control" placeholder="Número">
+            <input type="text" class="form-control" placeholder="Número" id="numero" required>
+            <div class="invalid-feedback">
+              Debe ingresar un numero
+            </div>
           </div>
         </div> <br>
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Esquina">
+          <input type="text" class="form-control" placeholder="Esquina" id="esquina" required>
+          <div class="invalid-feedback">
+            Debe ingresar una esquina
+          </div>
+        </div>
+      <hr>
+
+      <!-- Costo -->
+      <h3>Costo</h3>
+      <div class="container">
+        <ul class="list-group">
+          <li class="list-group-item text-bg-light border border-secondary rounded-start text-muted">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="col">
+                  <h5>Subtotal</h5>
+                  <p>Costo unitario del producto por cantidad</p>
+              </div>
+              <div class="col">
+                <h5 id="SubtotalC" class="text-end"></h5>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item text-bg-light p-3 border border-secondary rounded-start text-muted">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="col">
+                  <h5>Costo de Envio</h5>
+                  <p>Segun el tipo de envio</p>
+              </div>
+              <div class="col">
+                <h5 id="CostoEnvioF" class="text-end"></h5>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item text-bg-light p-3 border border-secondary rounded-start">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="col text-muted">
+                  <h5>Total($)</h5>
+              </div>
+              <div class="col">
+                <h5 id="TotalHtml" class="text-end"></h5>
+              </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Forma de pago -->
+      <br><hr>
+      <div class="row">
+        <div class="row p-0"><h3>Forma de pago</h3></div>
+          <div class="row" id="mensajeDeValidacion">
+            <div class="col p-0"><p id="nombreDePago" >No ha seleccionado</p></div>
+              <div class="col d-flex justify-content-end">
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#formaDePago">
+                  Seleccionar
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+            <button class="btn btn-primary" type="submit" id="enviarCompra" onclick="">Finalizar Compra</button>
         </div>
       </form>
-      <hr>
-      
-        
-        
-          
-        
-
-      </form>
-      
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -112,6 +175,50 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <!-- modal -->
+  <div class="modal fade" id="formaDePago" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="formaDePago" id="targetaDeCredito">
+            <label for="Targeta de credito" aria-required="true">Targeta de credito</label>
+            <hr>
+            <label for="numeroTargeta" class="form-label">Número de tarjeta</label>
+            <input type="text" class="form-control" id="numeroTargeta">
+            
+
+            <label for="codigoSeguridad" class="form-label">Código de seg.</label>
+            <input type="text" class="form-control" id="codigoSeguridad">
+
+
+            <label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
+            <input type="text" class="form-control" id="vencimiento">
+            </div>
+            <br>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="formaDePago" id="transferenciaBancaria">
+                <label class="form-check-label" for="flexRadioDefaultTransferencia2">
+                  Transferencia bancaria
+                </label><hr>
+                <label for="numeroCuenta" class="form-label">Número de cuenta</label>
+                <input type="text" class="form-control" id="numeroCuenta" >
+            </div>
+            <hr>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

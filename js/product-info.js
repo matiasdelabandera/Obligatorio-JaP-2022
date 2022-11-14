@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (e){
     })
 
     // document.getElementById("enviar").addEventListener("click", comentarioNuevo())
-})
+})  
 
 async function fetchComentarios(){
     const respuesta = await fetch(URLC);
@@ -131,7 +131,7 @@ function showRelatedProducts(data){
         relProdHtml += `
         <div class="col-md-2">
             <div class="product-card">
-                <div class="product-badge text-danger" onclick="idRelatedProduct(${element.id})">
+                <div class="product-badges" onclick="idRelatedProduct(${element.id})">
                     <a class="product-thumb" href="product-info.html" data-abc="true"><img src="${element.image}" alt="Product" class="img-thumbnail"></a>
                     <h3 class="product-title">${element.name}</h3>
                 </div>
