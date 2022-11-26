@@ -1,4 +1,4 @@
-const JSON = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
+const JSON = CART_INFO_URL;
 var subTotal = ''
 var costoEnvio = "";
 var Total = "";

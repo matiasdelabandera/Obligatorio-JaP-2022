@@ -1,5 +1,5 @@
-const URL = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem('prod-id')}.json`
-const URLC = `https://japceibal.github.io/emercado-api/products_comments/${localStorage.getItem('prod-id')}.json`
+const URL = PRODUCT_INFO_URL + `${localStorage.getItem('prod-id')}`
+const URLC = PRODUCT_INFO_COMMENTS_URL + `${localStorage.getItem('prod-id')}`
 var nombreUsuario = "";
 var currentProductsArray = [];
 

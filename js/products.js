@@ -1,5 +1,5 @@
 const catID = localStorage.getItem('catID');
-const PRODUCTS_URL_LS = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+const PRODUCTS_URL_LS = PRODUCTS_URL + `${catID}`;
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COST = "Precio";

@@ -63,10 +63,59 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container w-75">
+      <div class="d-flex p-4">
+        <div class="col"><h1>Perfil</h1></div>
+        <div class="col">
+          
+        </div>
       </div>
+      <hr>
+      <div class="justify-content-center">
+        <form method="get" class="needs-validation" novalidate id="formularioPerfilInfo">
+          <div class="row">
+            <!-- imagen perfil -->
+            <div class="col">
+              <label for="">Imagen perfil</label>
+              <img src="img/img_perfil.png" class="rounded float-end img-thumbnail" style="max-width: 20%;" alt="" id="imagenPerfil">
+            </div>
+            <div class="col">
+              <label for="profilePicture" class="form-label">Imagen de perfil</label>
+              <input class="form-control" type="file" id="profilePicture" accept="image/*">
+            </div>
+            
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-6">
+              
+              <label for="" class="form-label">Primer Nombre*</label>
+              <input type="text" class="form-control" placeholder="Gabriela" id="perfilUsuario" value="" required>
+
+              <label for="" class="form-label">Primer Apellido*</label>
+              <input type="text" class="form-control" placeholder="Diaz" id="apellidoUsuario" value="" required>
+
+              <label for="" class="form-label">E-mail*</label>
+              <input type="text" class="form-control" placeholder="ejemplo@mail.com" id="emailProfileHtml" value="" required>
+            </div>
+            <div class="col-6">
+
+              <label for="" class="form-label">Segundo Nombre</label>
+              <input type="text" class="form-control" placeholder="Fernanda" id="segundoNombreUsuario" value="">
+
+              <label for="" class="form-label">Segundo Apellido</label>
+              <input type="text" class="form-control" placeholder="Fagundez" id="segundoApellidoUsuario" value="">
+
+              <label for="" class="form-label">Telefono de contacto</label>
+              <input type="text" class="form-control text" placeholder="Ej:090000000" id="telefonoUsuario" value="">
+            </div>
+          </div>
+          <br>
+          <hr>
+          <input type="submit" value="Guardar cambios" class="btn btn-primary" id="submitButton">
+        </form>        
+      </div>
+     
     </div>
   </main>
   <footer class="text-muted">
